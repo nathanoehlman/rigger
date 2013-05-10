@@ -12,7 +12,9 @@ var assert = require('assert'),
             input: '../input/',
             a: 'testdir!a',
             b: 'testdir!b'
-        }
+        },
+
+        useDirectives: false
     };
 
 function rigAndCompare(file, done) {

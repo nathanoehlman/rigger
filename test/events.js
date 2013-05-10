@@ -49,7 +49,7 @@ describe('event tests', function() {
     it('it should trigger an include:dir for a local dir include', function(done) {
         var includedDir = false;
         
-        rigger.process('//= input', { cwd: __dirname }, function(err, output) {
+        rigger.process('//= input/subdir', { cwd: __dirname }, function(err, output) {
             assert(includedDir, 'include:dir event not fired');
             done();
         })

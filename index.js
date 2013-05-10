@@ -101,7 +101,7 @@ function Rigger(opts) {
     this.output = [];
     
     // initialise whether directives should be included or not
-    this.useDirectives = opts.useDirectives || false;
+    this.useDirectives = typeof opts.useDirectives == 'undefined' || opts.useDirectives;
 }
 
 util.inherits(Rigger, Stream);
@@ -143,7 +143,7 @@ Rigger.prototype.convert = function(conversion, input, opts, callback) {
         }
 
         if (! output) {
-            debug('running conversion "' + conversion + '" produced no output for input: ', input);
+            debug('running conversion "' + conversion + '" produced no output for input: ');
         }
 
         // trigger the callback
@@ -440,7 +440,7 @@ Rigger.prototype._fork = function(files, callback) {
 
         function(err, results) {
             // TODO: process child source map and integrate into main sourcemap
-            debug('finished subrigging', results);
+            debug('finished subrigging');
             callback(err, (results || []).join(rigger.lineEnding));
         }
     );

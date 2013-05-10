@@ -6,7 +6,8 @@ var assert = require('assert'),
     inputPath = path.resolve(__dirname, 'input-plugins'),
     outputPath = path.resolve(__dirname, 'output'),
     riggerOpts = {
-        encoding: 'utf8'
+        encoding: 'utf8',
+        useDirectives: false
     },
     files = fs.readdirSync(inputPath);
     

@@ -17,7 +17,7 @@ function rigAndCompare(file, done) {
         var comparison = JSON.parse(content);
         
         // read the output file
-        rigger(path.join(inputPath, file), { settings: { test: false } }, function(parseErr, parsed, settings) {
+        rigger(path.join(inputPath, file), { useDirectives: false, settings: { test: false } }, function(parseErr, parsed, settings) {
             assert.ifError(parseErr);
             assert.deepEqual(settings, comparison);
             

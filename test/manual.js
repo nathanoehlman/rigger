@@ -26,7 +26,7 @@ describe('manual stream manipulation tests', function() {
     });
     
     it('should be able to generate output from using rigger.write', function(done) {
-        rigger.process('//= noincludes', { cwd: inputPath }, function(err, output) {
+        rigger.process('//= noincludes', { cwd: inputPath, useDirectives: false }, function(err, output) {
             assert.ifError(err);
             assert.equal(output, testFiles['noincludes.js']);
             

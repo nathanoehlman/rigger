@@ -11,7 +11,8 @@ var assert = require('assert'),
         encoding: 'utf8',
         stylus: {
             plugins: [ require('nib') ]
-        }
+        },
+        useDirectives: false
     },
     targetContext = {
         js: '.js',

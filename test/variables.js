@@ -23,7 +23,7 @@ function rigAndCompare(file, done) {
                 
                 assert.ifError(refErr, 'No output file found for test');
 
-                rigger(path.join(inputPath, file), { settings: testSettings }, function(parseErr, parsed) {
+                rigger(path.join(inputPath, file), { useDirectives: false, settings: testSettings }, function(parseErr, parsed) {
                     if (! parseErr) {
                         assert.equal(parsed, reference);
                     }

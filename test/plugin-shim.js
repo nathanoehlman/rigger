@@ -5,7 +5,7 @@ var assert = require('assert'),
 
 describe('shim plugin tests', function() {
     it('it should convert a single shim request into a single include', function(done) {
-        rigger.process('//=shim Array.indexOf', function(err, output) {
+        rigger.process('//=shim Array.indexOf', { useDirectives: false}, function(err, output) {
             assert.ifError(err);
             
             getit('github://buildjs/shims/array/indexof.js', function(err, reference) {
@@ -18,7 +18,7 @@ describe('shim plugin tests', function() {
     });
     
     it('should be able to convert space delimited shim requests into concatenated includes', function(done) {
-        rigger.process('//=shim Array.indexOf String.trim', function(err, output) {
+        rigger.process('//=shim Array.indexOf String.trim', { useDirectives: false}, function(err, output) {
             var referenceFiles = [
                 'github://buildjs/shims/array/indexof.js',
                 'github://buildjs/shims/string/trim.js'

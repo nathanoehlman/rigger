@@ -17,7 +17,7 @@ function rigAndCompare(file, done) {
     fs.readFile(path.join(outputPath, file), 'utf8', function(refErr, reference) {
         assert.ifError(refErr);
 
-        rigger(path.join(inputPath, file), function(parseErr, parsed) {
+        rigger(path.join(inputPath, file), { useDirectives: false }, function(parseErr, parsed) {
             assert.ifError(parseErr);
             assert.equal(parsed, reference);
         
